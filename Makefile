@@ -1,6 +1,6 @@
 VERSION = 3
 PATCHLEVEL = 10
-SUBLEVEL = 61
+SUBLEVEL = 105
 EXTRAVERSION =
 NAME = TOSSUG Baby Fish
 
@@ -194,7 +194,7 @@ SUBARCH := $(shell uname -m | sed -e s/i.86/x86/ -e s/x86_64/x86/ \
 # Note: Some architectures assign CROSS_COMPILE in their arch/*/Makefile
 export KBUILD_BUILDHOST := $(SUBARCH)
 ARCH		?=arm64
-CROSS_COMPILE	?=../PLATFORM/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-
+CROSS_COMPILE	?=/home/prashantp/UBERTC-aarch64-linux-android-4.9/bin/aarch64-linux-android-
 
 # Architecture as present in compile.h
 UTS_MACHINE 	:= $(ARCH)
@@ -380,7 +380,18 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -Werror-implicit-function-declaration \
 		   -Wno-format-security \
 		   -fno-delete-null-pointer-checks \
-		   -fdiagnostics-show-option -Werror
+		   -fdiagnostics-show-option \
+		   -std=gnu89
+
+# enable cpu specific flags
+KBUILD_CFLAGS	+= -pipe -mcpu=cortex-a53 -mtune=cortex-a53 -DERRATA_A53_835769 \
+			-DERRATA_A53_836870 -DERRATA_A53_843419 -DA53_DISABLE_NON_TEMPORAL_HINT
+
+#ERRATA_A53_835769 := 1
+#ERRATA_A53_836870 := 1 
+#ERRATA_A53_843419 := 1
+#A53_DISABLE_NON_TEMPORAL_HINT := 1
+
 KBUILD_AFLAGS_KERNEL :=
 KBUILD_CFLAGS_KERNEL :=
 KBUILD_AFLAGS   := -D__ASSEMBLY__
