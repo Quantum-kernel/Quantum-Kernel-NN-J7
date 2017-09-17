@@ -363,7 +363,7 @@ static int cpufreq_parse_governor(char *str_governor, unsigned int *policy,
 			*policy = CPUFREQ_POLICY_POWERSAVE;
 			err = 0;
 		}
-	} else if (cpufreq_driver->target) {
+	} else {
 		struct cpufreq_governor *t;
 
 		mutex_lock(&cpufreq_governor_mutex);

@@ -640,10 +640,10 @@ static int cpufreq_interactive_speedchange_task(void *data)
 					&per_cpu(cpuinfo, j);
 
 				if (pjcpu->target_freq > max_freq)
-					max_freq = pjcpu->target_freq;
+					max_freq = pjcpu->target_freq; 
 			}
 
-			if (max_freq != pcpu->policy->cur)
+				if (max_freq != pcpu->policy->cur)
 				__cpufreq_driver_target(pcpu->policy,
 							max_freq,
 							CPUFREQ_RELATION_H);
