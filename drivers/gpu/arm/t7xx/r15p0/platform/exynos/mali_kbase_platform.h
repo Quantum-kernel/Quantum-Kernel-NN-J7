@@ -42,7 +42,7 @@ do { \
 #if defined(CONFIG_SOC_EXYNOS7580)  
 #define EXYNOS7580_REVISION_0       (0x0)
 #define EXYNOS7580_REVISION_0_1     (0x01)
-#define GPU_MAX_CLOCK_REVISION_0    668
+#define GPU_MAX_CLOCK_REVISION_0    800
 #endif
 
 #define BMAX_RETRY_CNT 10
