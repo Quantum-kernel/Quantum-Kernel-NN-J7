@@ -48,20 +48,20 @@
 /*  clk,vol,abb,min,max,down stay, pm_qos mem,
 	pm_qos int, pm_qos cpu_kfc_min, pm_qos cpu_egl_max */
 static gpu_dvfs_info gpu_dvfs_table_default[] = {
-	{800, 1200000, 0,  90, 100, 1, 0, 825000, 667000,  1200000, CPU_MAX},
-	{734, 1150000, 0,  80,  90, 1, 0, 741000, 559000,  1000000, CPU_MAX},
-	{668, 1100000, 0,  60,  80, 1, 0, 728000, 416000,   800000, CPU_MAX},
-	{534, 1000000, 0,  40,  60, 1, 0, 667000, 338000,   500000, CPU_MAX},
-	{440, 1000000, 0,  30,  40, 1, 0, 559000, 273000,   500000, CPU_MAX},
-	{350, 1000000, 0,  20,  30, 1, 0, 416000, 273000,   500000, CPU_MAX},
-	{266,  900000, 0,  15,  20, 1, 0, 338000, 200000,   	 0, CPU_MAX},
-	{160,  900000, 0,  10,  15, 1, 0, 273000, 200000,   	 0, CPU_MAX},
+	{800, 1200000, 0,  90, 100, 1, 0, 825000, 400000,  1200000, CPU_MAX},
+	{734, 1150000, 0,  80,  90, 1, 0, 825000, 400000,  1000000, CPU_MAX},
+	{668, 1100000, 0,  60,  80, 1, 0, 825000, 400000,   800000, CPU_MAX},
+	{534, 1000000, 0,  40,  60, 1, 0, 728000, 334000,   500000, CPU_MAX},
+	{440, 1000000, 0,  30,  40, 1, 0, 667000, 267000,   500000, CPU_MAX},
+	{350, 1000000, 0,  20,  30, 1, 0, 559000, 267000,   500000, CPU_MAX},
+	{266,  900000, 0,  15,  20, 1, 0, 416000, 200000,   	 0, CPU_MAX},
+	{160,  900000, 0,  10,  15, 1, 0, 416000, 200000,   	 0, CPU_MAX},
 };
 
 static int mif_min_table[] = {
 	200000, 273000, 338000,
 	416000, 559000, 667000,
-	728000, 741000, 825000,
+	728000, 825000,
 };
 
 static gpu_attribute gpu_config_attributes[] = {
@@ -111,7 +111,7 @@ static gpu_attribute gpu_config_attributes[] = {
 	{GPU_EARLY_CLK_GATING, 0},
 	{GPU_DVS, 0},
 	{GPU_PERF_GATHERING, 0},
-#ifdef MALI_SEC_HWCNT
+#ifdef CONFIG_MALI_SEC_HWCNT
 	{GPU_HWCNT_GATHERING, 1},
 	{GPU_HWCNT_POLLING_TIME, 90},
 	{GPU_HWCNT_UP_STEP, 3},
@@ -125,11 +125,11 @@ static gpu_attribute gpu_config_attributes[] = {
 	{GPU_HWCNT_CHOOSE_L3_CACHE , 0},
 	{GPU_HWCNT_CHOOSE_MMU_L2 , 0},
 #endif
-	{GPU_RUNTIME_PM_DELAY_TIME, 30},
-	{GPU_DVFS_POLLING_TIME, 15},
+	{GPU_RUNTIME_PM_DELAY_TIME, 50},
+	{GPU_DVFS_POLLING_TIME, 30},
 	{GPU_PMQOS_INT_DISABLE, 0},
 	{GPU_PMQOS_MIF_MAX_CLOCK, 825000},
-	{GPU_PMQOS_MIF_MAX_CLOCK_BASE, 800},
+	{GPU_PMQOS_MIF_MAX_CLOCK_BASE, 734},
 	{GPU_CL_DVFS_START_BASE, 600},
 	{GPU_DEBUG_LEVEL, DVFS_WARNING},
 	{GPU_TRACE_LEVEL, TRACE_ALL},
