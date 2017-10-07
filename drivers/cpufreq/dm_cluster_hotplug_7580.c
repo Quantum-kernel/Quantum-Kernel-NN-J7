@@ -214,10 +214,10 @@ static void hotplug_enter_hstate(bool force, enum hstate state)
 			state = H0;
 #endif
 
-		if (min_state >= 0 && state >= min_state)
+		if (min_state >= 0 && state > min_state)
 			state = min_state;
 
-		if (max_state > 0 && state <= max_state)
+		if (max_state > 0 && state < max_state)
 			state = max_state;
 	}
 
