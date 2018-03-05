@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 cmd_flags
 include/config/
 include/generated/
@@ -46,8 +45,7 @@ drivers/misc/dualwave/dualwave.mod.c
 dmesg.sh
 fips_fmp_utils
 fmp_hmac.bin
-=======
-<<<<<<< HEAD
+
 #
 # Normal rules
 #
@@ -97,7 +95,6 @@ modules.builtin
 #
 !.gitignore
 !.mailmap
->>>>>>> 3daa2aa71...  Wakelock Switches
 
 
 
@@ -14782,7 +14779,3 @@ drivers/cpufreq/cpufreq_ondemand.o
 drivers/cpufreq/cpufreq_powersave.o
 drivers/cpufreq/cpufreq_smartass2.o
 drivers/cpufreq/cpufreq_zzmoove.o
-
-
->>>>>>> 92ccd069f...  Wakelock Switches
->>>>>>> 3daa2aa71...  Wakelock Switches
