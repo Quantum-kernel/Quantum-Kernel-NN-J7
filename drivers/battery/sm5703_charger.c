@@ -728,7 +728,7 @@ static bool sm5703_chg_init(struct sm5703_charger_data *charger)
 
 	/* Auto-Stop configuration for Emergency status */
 	__sm5703_set_termination_current_limit(charger->sm5703->i2c_client, 300);
-	sm5703_set_topoff_timer(charger, charger->pdata->top_off_timer);
+	sm5703_set_topoff_timer(charger, SM5703_TOPOFF_TIMER_45m);
 
 	/* MUST set correct regulation voltage first
 	 * Before MUIC pass cable type information to charger
@@ -997,7 +997,6 @@ static int sec_chg_set_property(struct power_supply *psy,
 			topoff = sm5703_get_current_topoff_setting(charger);
 			pr_info("%s:Set chg current = %d mA, topoff = %d mA\n", __func__,
 					val->intval, topoff);
-			charger->charging_current = val->intval ;
 			sm5703_set_charging_current(charger, topoff, 0);
 			break;
 		case POWER_SUPPLY_PROP_CHARGE_FULL_DESIGN:
@@ -1036,10 +1035,6 @@ static int sec_chg_set_property(struct power_supply *psy,
 			charger->pdata->chg_float_voltage = val->intval;
 			sm5703_set_regulation_voltage(charger, val->intval);
 			break;
-		case POWER_SUPPLY_PROP_CURRENT_FULL:
-			__sm5703_set_termination_current_limit(
-					charger->sm5703->i2c_client, val->intval);
-			
 #endif
 		case POWER_SUPPLY_PROP_HEALTH:
 			/* charger->ovp = val->intval; */
@@ -1535,18 +1530,6 @@ static int sm5703_charger_parse_dt(struct device *dev,
 		pdata->chg_float_voltage = 4350;
 	}
 
-	/*  Added top-off timer parameter in dtsi to set different top-off for different models  */	
-	ret = of_property_read_u32(np, "battery,top_off_timer", &pdata->top_off_timer);
-	if (ret < 0) 
-	{
-		pdata->top_off_timer = SM5703_TOPOFF_TIMER_45m;
-		pr_info("%s : top_off_timer: %d\n", __func__, pdata->top_off_timer);
-	}
-	else
-	{
-		pr_info("%s : top_off_timer: %d\n", __func__, pdata->top_off_timer);
-	}
-	
 	pdata->chgen_gpio = of_get_named_gpio(np, "battery,chg_gpio_en", 0);
 	if (pdata->chgen_gpio < 0) {
 		pr_err("%s : cannot get chgen gpio : %d\n",
