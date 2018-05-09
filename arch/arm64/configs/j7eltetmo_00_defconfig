@@ -1356,13 +1356,13 @@ CONFIG_BROADCOM_WIFI=y
 # CONFIG_WL_TI is not set
 # CONFIG_MWIFIEX is not set
 # CONFIG_BCM4330 is not set
-# CONFIG_BCM4343 is not set
+CONFIG_BCM4343=y
 # CONFIG_BCM4334 is not set
 # CONFIG_BCM4335 is not set
 # CONFIG_BCM4339 is not set
 # CONFIG_BCM4354 is not set
 # CONFIG_BCM43241 is not set
-CONFIG_BCM43455=y
+# CONFIG_BCM43455 is not set
 # CONFIG_BCM4334W is not set
 # CONFIG_BCM43454 is not set
 CONFIG_BCMDHD_FW_PATH="/system/etc/wifi/bcmdhd_sta.bin"
