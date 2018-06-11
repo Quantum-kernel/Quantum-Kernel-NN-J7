@@ -407,6 +407,21 @@ EXPORT_SYMBOL_GPL(device_set_wakeup_enable);
 static void wakeup_source_activate(struct wakeup_source *ws)
 {
 	unsigned int cec;
+	
+	if (!enable_sensorhub_wl && !strcmp(ws->name, "ssp_sensorhub_wake_lock")) {
+		pr_info("wakeup source sensorhub activation skipped\n");
+		return;
+	}
+
+        if (!enable_ssp_wl && !strcmp(ws->name, "ssp_wake_lock")) {
+                pr_info("wakeup source SSP activation skipped\n");
+                return;
+        }
+
+        if (!enable_bcm4773_wl && !strcmp(ws->name, "bcm4773_wake_lock")) {
+                pr_info("wakeup source bcm4773_wake_lock activation skipped\n");
+                return;
+        }
 
 	/*
 	 * active wakeup source should bring the system
