@@ -291,7 +291,7 @@
 		cfg_irq: cfg-irq {
 			samsung,pins = "gpa0-3";
 			samsung,pin-function = <0xf>;
-			samsung,pin-pud = <0>;
+			samsung,pin-pud = <3>;
 			samsung,pin-drv = <0>;
 		};
 		cfg_input: cfg-input {
@@ -360,11 +360,9 @@
 		pinctrl-1 = <&cfg_i2c>;
 		pinctrl-2 = <&cfg_gpio>;
 		touchkey@20 {
-			pinctrl-names = "default","on_irq","off_irq","sub_det";
+			pinctrl-names = "on_irq","off_irq","sub_det";
 			pinctrl-0 = <&cfg_irq>;
-			pinctrl-1 = <&cfg_irq>;
-			pinctrl-2 = <&cfg_input>;
-			pinctrl-3 = <&sub_det>;
+			pinctrl-1 = <&cfg_input>;
 			compatible = "coreriver,tc300-keypad";
 			reg = <0x20>;
 			interrupts = <2 0 0>;

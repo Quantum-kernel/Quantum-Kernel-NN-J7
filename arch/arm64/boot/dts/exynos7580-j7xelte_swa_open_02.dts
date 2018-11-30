@@ -205,10 +205,10 @@
 			io-channel-names = "adc-jack";
 			#io-channel-cells = <1>;
 			io-channel-ranges;
-			but-zones-list = <&but_zones 226 0 235>, /* send/end */
-					<&but_zones 582 236 313>, /* google */
-					<&but_zones 115 314 515>, /* vol up */
-					<&but_zones 114 516 900>; /* vol down */
+			but-zones-list = <&but_zones 226 0 245>, /* send/end */
+					<&but_zones 582 246 315>, /* google */
+					<&but_zones 115 316 520>, /* vol up */
+					<&but_zones 114 521 900>; /* vol down */
 			mic-adc-range = <1380>;
 			btn-release-value = <1000>;
 			mic-det-delay = <40>;

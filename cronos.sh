@@ -34,7 +34,7 @@ export PLATFORM_VERSION=$CR_PLATFORM
 export $CR_ARCH
 ##########################################
 # Device specific Variables [SM-J700x]
-CR_DTSFILES_J700X="exynos7580-j7elte_rev00.dtb exynos7580-j7elte_rev04.dtb exynos7580-j7elte_rev06.dtb"
+CR_DTSFILES_J700X="exynos7580-j7e3g_rev00.dtb exynos7580-j7e3g_rev05.dtb exynos7580-j7e3g_rev08.dtb"
 CR_CONFG_J700X=j7eltetmo_00_defconfig
 CR_VARIANT_J700X=J700x
 ##########################################

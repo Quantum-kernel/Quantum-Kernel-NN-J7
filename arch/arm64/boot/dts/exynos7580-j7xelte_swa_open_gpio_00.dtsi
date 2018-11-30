@@ -118,8 +118,6 @@
 
 		PIN_IN(gpd2-2, DOWN, LV1);	/* NC */
 		PIN_IN(gpd2-3, DOWN, LV1);	/* NC */
-		PIN_IN(gpd3-3, DOWN, LV1);	/* NC */
-		PIN_IN(gpd3-4, DOWN, LV1);	/* NC */
 
 		PIN_IN(gpe0-7, DOWN, LV1);	/* NC */
 
@@ -199,8 +197,8 @@
 		PIN_SLP(gpd3-0, INPUT, DOWN);	/* NC */
 		PIN_SLP(gpd3-1, INPUT, NONE);	/* PROXY_SCL_1P8 */
 		PIN_SLP(gpd3-2, INPUT, NONE);	/* PROXY_SDA1P8 */
-		PIN_SLP(gpd3-3, INPUT, DOWN);	/* NC */
-		PIN_SLP(gpd3-4, INPUT, DOWN);	/* NC */
+		PIN_SLP(gpd3-3, INPUT, NONE);	/* MUIC_SCL_1P8 */
+		PIN_SLP(gpd3-4, INPUT, NONE);	/* MUIC_SDA_1P8 */
 
 		PIN_SLP(gpe0-0, PREV, DOWN);	/* NFC_FIRM */
 		PIN_SLP(gpe0-1, PREV, NONE);	/* FLASH_LED_TORCH */
