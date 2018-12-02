@@ -52,6 +52,8 @@
 #define LIMIT_COLD_VOLTAGE	1350000
 #define MIN_COLD_VOLTAGE	950000
 #define COLD_VOLT_OFFSET	37500
+#define MY_MAX_FREQ         1600000
+#define MY_MIN_FREQ         300000
 
 #define APLL_FREQ(f, a0, a1, a2, a3, a4, a5, a6, b0, b1, m, p, s) \
 	{ \

@@ -102,7 +102,7 @@ static struct exynos_hotplug_ctrl ctrl_hotplug = {
 	.max_lock = -1,
 	.cur_hstate = H0,
 	.old_state = H0,
-	.down_freq_limit = 400000,
+	.down_freq_limit = 300000,
 };
 
 static DEFINE_MUTEX(hotplug_lock);
